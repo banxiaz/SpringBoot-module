@@ -1,0 +1,69 @@
+### 测试用Map接收
+POST http://localhost:8080/post/postjson1
+Content-Type: application/json
+
+{
+  "name": "wust",
+  "password": "123456"
+}
+
+### 测试用对象接收
+POST http://localhost:8080/post/postjson2
+Content-Type: application/json
+
+{
+  "name": "wust",
+  "password": "123456"
+}
+
+### 测试用List接收
+POST http://localhost:8080/post/postjson3
+Content-Type: application/json
+
+[
+  {
+    "name": "wust",
+    "password": "123456"
+  }
+]
+
+
+### 发送application/x-www-form-urlencoded
+POST http://localhost:8080/post/jsonpost4
+Content-Type: application/x-www-form-urlencoded
+
+name=wust&password=1234567
+
+### 发送multipart/form-data，--WebAppBoundary表示分隔符
+POST http://localhost:8080/post/jsonpost4
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+wust
+--WebAppBoundary
+Content-Disposition: form-data; name="password"
+Content-Type:  text/plain
+
+123654
+--WebAppBoundary--
+
+### 发送application/x-www-form-urlencoded
+POST http://localhost:8080/post/jsonpost5
+Content-Type: application/x-www-form-urlencoded
+
+name=wust&password=1234567
+
+### 发送application/x-www-form-urlencoded ???
+POST http://localhost:8080/post/jsonpost6
+Content-Type: application/x-www-form-urlencoded
+
+name=wust&name=1234567&name=1234567
+
+### 发送application/x-www-form-urlencoded
+POST http://localhost:8080/post/jsonpost7
+Content-Type: application/x-www-form-urlencoded
+
+name=wust&password=1234567

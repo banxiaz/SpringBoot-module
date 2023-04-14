@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+Hello world
+<p th:text="${message}"></p>
+
+<div id="print_main_full_box">
+    <style>
+        #print_main_full_box {
+            width: 100%;
+        }
+
+        #print_main_full_box > * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #print_main_full_box > table, td, th {
+            margin: 0;
+            padding: 0;
+            border: 1px solid black;
+            border-collapse: collapse
+        }
+
+        .yiban {
+            width: 49%;
+            text-align: left;
+            display: inline-block;
+            /*border-left: 1px solid black;*/
+        }
+
+        .jiachu {
+            font-weight:bold;
+        }
+
+        td {
+            font-size: 14px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+    </style>
+    <table width="100%">
+        <tbody>
+        <tr class="jiachu">
+            <td colspan="8" class="center" style="font-size: 16px">
+                <div th:text = ${company}>公司</div>
+                <div th:text = ${title}>出货单</div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8" class="center">
+                <span th:text = ${address}>地址</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <div class="yiban">
+                    <span class="jiachu">客户名称：<span th:text = ${cursumerName}>客户名称</span></span>
+                </div>
+                <div class="yiban">
+                    <span class="jiachu">订单号：</span><span th:text = ${orderNo}>订单号</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <div class="yiban">
+                    <span class="jiachu">送货地址：<span th:text = ${deliveryAddr}>送货地址</span></span>
+                </div>
+                <div class="yiban">
+                    <span class="jiachu">送货日期：</span><span th:text = ${actualDeliveryDate}>送货日期</span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="8">
+                <div class="yiban">
+                    <span class="jiachu">联系电话：<span th:text = ${phone}>联系电话</span></span>
+                </div>
+                <div class="yiban">
+                    <span class="jiachu">送货单号：</span><span th:text = ${invoiceNo}>送货单号</span>
+                </div>
+            </td>
+        </tr>
+        <tr class="center">
+            <td colspan="8" class="jiachu">
+                <div>机器名称:<span th:text = ${machineName}></span></div>
+            </td>
+        </tr>
+        <tr class="jiachu">
+            <td width="5%" align="center">序号</td>
+            <td width="5%" align="center">内部序号</td>
+            <td width="25%" align="center">图号</td>
+            <td width="5%" align="center">单位</td>
+            <td width="5%" align="center">数量</td>
+            <td width="5%" align="center">单价</td>
+            <td width="5%" align="center">总价</td>
+            <td width="10%" align="center">备注</td>
+        </tr>
+        <tr th:each = "prod : ${prods}" data-line="5">
+            <td align="center"><div data-item-index style="overflow: hidden;max-height: 40px;line-height: 20px;">序号</div></td>
+            <td align="center"><div th:text = ${prod.selfNumber} style="overflow: hidden;max-height: 40px;line-height: 20px;">内部序号</div></td>
+            <td align="center"><div th:text = ${prod.chartNo} style="overflow: hidden;max-height: 40px;line-height: 20px;">图号</div></td>
+            <td align="center"><div th:text = ${prod.company} style="overflow: hidden;max-height: 40px;line-height: 20px;">单位</div></td>
+            <td align="center"><div th:text = ${prod.invoiceNumber} style="overflow: hidden;max-height: 40px;line-height: 20px;">数量</div></td>
+            <td align="center"><div th:text = ${prod.unitPrice} style="overflow: hidden;max-height: 40px;line-height: 20px;">单价</div></td>
+            <td align="center"><div th:text = ${prod.totalPrice} style="overflow: hidden;max-height: 40px;line-height: 20px;">总价</div></td>
+            <td align="center"><div th:text = ${prod.remarks} style="overflow: hidden;max-height: 40px;line-height: 20px;">哦呵呵</div></td>
+        </tr>
+
+        <tr>
+            <td colspan="4" align="right">总计：</td>
+            <td align="right"><span th:text = ${invoiceNumber}>3</span></td>
+            <td align="right"></td>
+            <td align="right"><span th:text = ${totalPrice}>3</span></td>
+            <td align="right"></td>
+        </tr>
+        <tr>
+            <td colspan="4">送货单位签章:</td>
+            <td colspan="4">收货单位签章:</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+</body>
+</html>

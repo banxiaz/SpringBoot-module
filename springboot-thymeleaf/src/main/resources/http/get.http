@@ -1,0 +1,17 @@
+###
+GET http://localhost:8080/post/
+
+###
+GET http://localhost:8080/post/getmethod?name=hello&password=123456
+
+###
+GET http://localhost:8080/post/getmethod/hello/123456
+
+###
+GET http://localhost:8080/post/getmethodmap?name=hello&password=123456
+
+###
+GET http://localhost:8080/post/getmethodlist?name=hello&name=123456
+
+###
+GET http://localhost:8080/post/getmethodobj?name=hello&password=123456

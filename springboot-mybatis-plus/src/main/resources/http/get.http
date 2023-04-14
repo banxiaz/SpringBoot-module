@@ -1,0 +1,26 @@
+###
+GET http://localhost:8080/role/list
+
+### restful风格
+GET http://localhost:8080/user/edit/1
+
+###
+GET http://localhost:8080/user/edit?id=1
+
+###
+GET http://localhost:8080/user/list
+
+###
+GET http://localhost:8080/user/test
+
+###
+GET http://localhost:8080/user/getAllUser
+
+###
+GET http://localhost:8080/user/getUserById?id=10
+
+###
+GET http://localhost:8080
+
+###
+GET http://localhost:8080/hello/a

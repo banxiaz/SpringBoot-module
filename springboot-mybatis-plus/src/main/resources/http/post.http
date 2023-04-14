@@ -1,0 +1,76 @@
+### 发送json类型的请求
+POST http://localhost:8080/user/jsonpost1
+Content-Type: application/json
+
+{
+  "name": "wust",
+  "age": 122
+}
+
+<> 2022-10-04T181518.200.txt
+
+### 发送json类型的请求
+POST http://localhost:8080/user/jsonpost2
+Content-Type: application/json
+
+{
+  "name": "wust",
+  "age": 122
+}
+
+<> 2022-10-04T181433.200.txt
+
+###
+POST http://localhost:8080/user/jsonpost3
+Content-Type: application/json
+
+[
+  {
+    "name": "wust",
+    "age": 122
+  },
+  {
+    "name": "hust",
+    "age": 60
+  }
+]
+
+<> 2022-10-04T181743.200.txt
+<> 2022-10-04T181716.404.json
+
+### 发送application/x-www-form-urlencoded
+POST http://localhost:8080/user/jsonpost4
+Content-Type: application/x-www-form-urlencoded
+
+name=wust&age=120
+
+### 发送multipart/form-data，--WebAppBoundary表示分隔符
+POST http://localhost:8080/user/jsonpost4
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+Content-Type: text/plain
+
+wust
+--WebAppBoundary
+Content-Disposition: form-data; name="age"
+Content-Type: application/json
+
+19
+--WebAppBoundary--
+
+### 发送json类型的请求
+POST http://localhost:8080/user/add
+Content-Type: application/json
+
+{
+  "id": null,
+  "userName": "WUST",
+  "password": "123455",
+  "email": "123456@qq.com",
+  "phoneNumber": 13011111111,
+  "description": "this is a test data",
+  "createTime": null,
+  "updateTime": null
+}

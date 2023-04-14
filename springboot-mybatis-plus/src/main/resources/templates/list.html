@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+    user：定义变量，去接收遍历${userList}集合中的每一个数据
+    userStat：当前循环的对象状态的变量(可以不写), ${userList} 循环体的信息
+    userList：当前循环的集合
+-->
+
+<!--th:each="user, userStat : ${userList}" 中的 ${userList} 是后台传过来的集合
+
+◼ user：定义变量，去接收遍历${userList}集合中的一个数据
+◼ userStat：${userList} 循环体的信息
+◼ 其中 user 及 userStat 自己可以随便取名
+◼ userStat 是循环体的信息，通过该变量可以获取如下信息
+
+index: 当前迭代对象的 index （从 0 开始计算）
+
+count: 当前迭代对象的个数（从 1 开始计算） 这两个用的较多
+size: 被迭代对象的大小
+current: 当前迭代变量
+even/odd: 布尔值，当前循环是否是偶数/奇数（从 0 开始计算）
+first: 布尔值，当前循环是否是第一个
+last: 布尔值，当前循环是否是最后一个
+息 注意：循环体信息 userStat 也可以不定义，则默认采用迭代变量加上 Stat 后缀，即 userStat
+原文链接：https://blog.csdn.net/weixin_43823808/article/details/117171690-->
+<div th:each="user,userStat:${userList}">
+    <span th:text="${userStat.index}"></span>
+    <span th:text="${user.id}"></span>
+    <span th:text="${user.name}"></span>
+    <span th:text="${user.phone}"></span>
+    <span th:text="${user.address}"></span>
+
+</body>
+</html>

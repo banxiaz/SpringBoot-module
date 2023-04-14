@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: demo
+
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer: # 配置生产者
+      retries: 0 # 消息重发的次数
+      acks: 1 # 应答级别：多少个分区副本备份完成时向生产者发送ack确认
+      batch-size: 16384 # 一个批次可以使用的内存大小16KB
+      buffer-memory: 33554432 # 设置生产者内存缓冲区的大小32MB
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer #键和值的序列化方式
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    consumer:
+      group-id: javagroup
+      enable-auto-commit: true # 是否自动提交偏移量，默认值是ture,为了避免出现重复数据,可以把它设置为false,然后手动提交偏移量
+      auto-commit-interval: 100 # 自动提交的时间间隔
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
